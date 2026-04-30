@@ -1,9 +1,14 @@
-import requests
+from dotenv import load_dotenv
+import os
+import requests 
+load_dotenv()
 
-API_KEY = "b31c20d6dec8e8a7d789e3cbe152f780"
+api_key = os.getenv("API_KEY")
+
+
 city = "Kolkata"
 
-url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
+url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
 
 response = requests.get(url)
 data = response.json()
